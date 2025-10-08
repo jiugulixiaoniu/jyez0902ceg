@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JYEZ0902CEG - 语文积分表系统</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981',
+                        accent: '#8B5CF6',
+                        dark: '#1F2937',
+                        light: '#F3F4F6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .text-gradient {
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+            .bg-blur {
+                backdrop-filter: blur(8px);
+            }
+        }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-light to-blue-50 min-h-screen">
+    <!-- 导航栏 -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/80 bg-blur shadow-sm z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-primary to-accent flex items-center justify-center">
+                            <i class="fas fa-chart-line text-white text-xl"></i>
+                        </div>
+                        <div class="ml-3">
+                            <span class="block text-sm font-semibold text-dark">JYEZ0902CEG</span>
+                            <span class="block text-xs text-gray-500">语文积分表系统</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#" class="text-dark hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">首页</a>
+                        <a href="#" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">积分查询</a>
+                        <a href="#" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">数据分析</a>
+                        <a href="#match-reports" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">比赛报表</a>
+                        <a href="#" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">关于我们</a>
+                    </div>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-500 hover:text-primary focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg rounded-b-lg absolute w-full">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#" class="text-dark hover:text-primary block px-3 py-2 rounded-md text-base font-medium">首页</a>
+                <a href="#" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">积分查询</a>
+                <a href="#" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">数据分析</a>
+                <a href="#match-reports" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">比赛报表</a>
+                <a href="#" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">关于我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section class="pt-32 pb-20 md:pt-40 md:pb-32 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto text-center">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-accent text-gradient">
+                    欢迎来到 <span class="text-dark">JYEZ0902CEG</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
+                    专业的语文积分管理与评估系统，9月起正式启用，助力学习成长与团队协作
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12">
+                    <a href="#" class="btn-primary">
+                        <i class="fas fa-search mr-2"></i>查询积分
+                    </a>
+                    <a href="#" class="btn-secondary">
+                        <i class="fas fa-chart-bar mr-2"></i>查看数据分析
+                    </a>
+                    <a href="#match-reports" class="btn-accent">
+                        <i class="fas fa-file-alt mr-2"></i>比赛报表
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 最近比赛报表区域 -->
+    <section id="match-reports" class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-dark mb-4">最近比赛报表</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    查看最新两队比赛的详细统计与分析报表
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- 比赛报表 1 -->
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 shadow-lg border border-blue-100 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                            <i class="fas fa-flag-checkered text-primary text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-dark">清华队 vs 北大队</h3>
+                            <p class="text-sm text-gray-500">9月15日 · 最新比赛</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        查看两队在9月中旬比赛中的详细积分统计、表现分析及排名变化。
+                    </p>
+                    <a href="#" class="inline-flex items-center text-primary hover:text-accent font-medium transition-colors">
+                        查看完整报表
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- 比赛报表 2 -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 功能特点 -->
+    <section class="py-20 bg-light">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">核心功能</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    我们提供全方位的语文积分管理解决方案，从9月开始帮助您轻松跟踪学习进度
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 功能卡片 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon bg-blue-100 text-primary">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-dark mb-2">实时积分跟踪</h3>
+                    <p class="text-gray-600">
+                        从9月开始实时记录和更新语文学习积分，直观展示个人和团队的学习进度与成果。
+                    </p>
+                </div>
+
+                <!-- 功能卡片 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon bg-green-100 text-secondary">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-dark mb-2">团队协作</h3>
+                    <p class="text-gray-600">
+                        支持团队积分管理，促进小组成员间的良性竞争与合作，共同提升语文水平。
+                    </p>
+                </div>
+
+                <!-- 功能卡片 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon bg-purple-100 text-accent">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-dark mb-2">数据分析</h3>
+                    <p class="text-gray-600">
+                        提供多维度的数据分析与可视化，帮助师生了解学习状况，制定针对性提升策略。
+                    </p>
+                </div>
+
+                <!-- 功能卡片 4 -->
+                <div class="feature-card">
+                    <div class="feature-icon bg-yellow-100 text-yellow-600">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-dark mb-2">激励机制</h3>
+                    <p class="text-gray-600">
+                        完善的积分奖励体系，激发学习积极性，让语文学习更有动力和成就感。
+                    </p>
+                </div>
+
+                <!-- 功能卡片 5 -->
+                <div class="feature-card">
+                    <div class="feature-icon bg-red-100 text-red-600">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-dark mb-2">详细记录</h3>
+                    <p class="text-gray-600">
+                        完整记录每次学习活动和积分变动，支持历史数据查询与导出，便于学习回顾。
+                    </p>
+                </div>
+
+                <!-- 功能卡片 6 -->
+                <div class="feature-card">
+                    <div class="feature-icon bg-indigo-100 text-indigo-600">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-dark mb-2">响应式设计</h3>
+                    <p class="text-gray-600">
+                        适配各种设备屏幕，随时随地查询和管理积分，学习管理更加便捷高效。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 数据概览 -->
+    <section class="py-20 bg-gradient-to-br from-dark to-gray-800 text-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">数据概览</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    实时掌握语文学习动态，直观了解积分分布情况
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section class="py-20 bg-light">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">关于我们</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    JYEZ0902CEG致力于打造专业的语文积分管理系统，促进学习进步
+                </p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div class="grid md:grid-cols-2">
+                    <div class="p-8 md:p-12 flex flex-col justify-center">
+                        <h3 class="text-2xl font-bold text-dark mb-4">项目背景</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            JYEZ0902CEG（JYEZ-0902-Chinese-Evaluation-Group）是一个专注于语文学习积分管理的系统，旨在通过科学的积分机制，激发学生的学习兴趣，促进团队协作，提高语文学习效果。
+                        </p>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            我们相信，合理的激励机制和数据化的管理方式，能够帮助学生更好地规划学习路径，发现自己的优势与不足，从而实现更高效的学习。
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 rounded-full bg-primary mr-2"></div>
+                                <span class="text-gray-700">科学评估体系</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 rounded-full bg-secondary mr-2"></div>
+                                <span class="text-gray-700">实时数据更新</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 rounded-full bg-accent mr-2"></div>
+                                <span class="text-gray-700">个性化学习建议</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20"></div>
+                        <img src="https://picsum.photos/id/20/800/600" alt="语文学习场景" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">联系我们</h2>
+                <p class="text-xl text-gray-600 mb-8">
+                    如有任何问题或建议，欢迎通过邮箱联系我们
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-primary to-accent flex items-center justify-center">
+                            <i class="fas fa-chart-line text-white text-xl"></i>
+                        </div>
+                        <div class="ml-3">
+                            <span class="block text-sm font-semibold text-white">JYEZ0902CEG</span>
+                            <span class="block text-xs text-gray-400">语文积分表系统</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        专业的语文积分管理与评估系统，助力学习成长与团队协作。
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">快速链接</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">首页</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">积分查询</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">数据分析</a></li>
+                        <li><a href="#match-reports" class="text-gray-400 hover:text-white transition-colors duration-200">比赛报表</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">关于我们</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">资源中心</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">使用指南</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">常见问题</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">学习资料</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">更新日志</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">联系信息</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-gray-400 mr-2"></i>
+                            <span class="text-gray-400">Lavachicken2512@outlook.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    © 2024 JGL STUDIO. 保留所有权利。
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary hover:bg-primary/90 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 opacity-0 invisible">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <style>
+        /* 按钮样式 */
+        .btn-primary {
+            @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+        }
+
+        .btn-secondary {
+            @apply inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-dark bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
+        }
+
+        .btn-accent {
+            @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-accent hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+        }
+
+        /* 功能卡片样式 */
+        .feature-card {
+            @apply bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 card-hover;
+        }
+
+        .feature-icon {
+            @apply w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-xl;
+        }
+
+        /* 统计数字样式 */
+        .stat-card {
+            @apply p-6 rounded-xl bg-gradient-to-br from-white to-gray-50 shadow-md hover:shadow-lg transition-all duration-300;
+        }
+
+        .stat-number {
+            @apply text-3xl md:text-4xl font-bold text-primary mb-2;
+        }
+
+        .stat-label {
+            @apply text-gray-600 font-medium;
+        }
+
+        /* 联系图标样式 */
+        .contact-icon {
+            @apply w-14 h-14 rounded-full bg-light flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-md hover:shadow-lg;
+        }
+    </style>
+
+    <script>
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.remove('shadow-sm');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.add('shadow-sm');
+            }
+
+            if (window.scrollY > 300) {
+                backToTop.classList.remove('opacity-0', 'invisible');
+                backToTop.classList.add('opacity-100', 'visible');
+            } else {
+                backToTop.classList.add('opacity-0', 'invisible');
+                backToTop.classList.remove('opacity-100', 'visible');
+            }
+        });
+
+        // 移动端菜单
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 返回顶部
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // 数字动画
+        function animateNumbers() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-target'));
+                const duration = 2000; // 动画持续时间（毫秒）
+                const stepTime = 20; // 每步时间（毫秒）
+                const totalSteps = duration / stepTime;
+                const stepSize = target / totalSteps;
+                let current = 0;
+
+                const timer = setInterval(() => {
+                    current += stepSize;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+
+                    if (target > 1000) {
+                        stat.textContent = Math.floor(current).toLocaleString();
+                    } else {
+                        stat.textContent = Math.floor(current);
+                    }
+                }, stepTime);
+            });
+        }
+
+        // 监听滚动，当统计区域进入视口时触发动画
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateNumbers();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = document.querySelector('.stat-card').parentElement.parentElement;
+        observer.observe(statsSection);
+
+        // 图表初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 积分分布图表
+            const scoreCtx = document.getElementById('scoreDistributionChart').getContext('2d');
+            new Chart(scoreCtx, {
+                type: 'line',
+                data: {
+                    labels: ['9月', '10月', '11月', '12月', '1月', '2月'],
+                    datasets: [{
+                        label: '平均积分',
+                        data: [65, 78, 82, 90, 85, 95],
+                        borderColor: '#3B82F6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4,
+                        pointBackgroundColor: '#3B82F6',
+                        pointBorderColor: '#ffffff',
+                        pointBorderWidth: 2,
+                        pointRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 团队积分对比图表
+            const teamCtx = document.getElementById('teamComparisonChart').getContext('2d');
+            new Chart(teamCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['清华队', '北大队', '复旦队', '交大队', '浙大队'],
+                    datasets: [{
+                        label: '团队总积分',
+                        data: [1250, 1180, 1050, 980, 920],
+                        backgroundColor: [
+                            'rgba(59, 130, 246, 0.8)',
+                            'rgba(16, 185, 129, 0.8)',
+                            'rgba(139, 92, 246, 0.8)',
+                            'rgba(245, 158, 11, 0.8)',
+                            'rgba(239, 68, 68, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgba(59, 130, 246, 1)',
+                            'rgba(16, 185, 129, 1)',
+                            'rgba(139, 92, 246, 1)',
+                            'rgba(245, 158, 11, 1)',
+                            'rgba(239, 68, 68, 1)'
+                        ],
+                        borderWidth: 2,
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+</body></html>
