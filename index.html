@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JYEZ0902CEG - 语文积分表系统</title>
+    <title>JYEZ0902CEG - 语文学分表系统</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
@@ -75,7 +75,7 @@
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
                         <a href="#" class="text-dark hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">首页</a>
-                        <a href="#" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">积分查询</a>
+                        <a href="#" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">学分查询</a>
                         <a href="#" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">数据分析</a>
                         <a href="#match-reports" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">比赛报表</a>
                         <a href="Sidebar/Rules.html" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">数据管理规则</a>
@@ -94,7 +94,7 @@
         <!-- 移动端菜单 -->
         <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg rounded-b-lg absolute w-full">
             <a href="index.html" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">首页</a>
-            <a href="#" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">积分查询</a>
+            <a href="#" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">积学查询</a>
             <a href="#" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">数据分析</a>
             <a href="#match-reports" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">比赛报表</a>
             <a href="Sidebar/Rules.html" class="text-dark hover:text-primary block px-3 py-2 rounded-md text-base font-medium">数据管理规则</a>
@@ -110,11 +110,11 @@
                     欢迎来到 <span class="text-dark">JYEZ0902CEG</span>
                 </h1>
                 <p class="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
-                    专业的语文积分管理与评估系统，9月起正式启用，助力学习成长与团队协作
+                    专业的语文学分管理与评估系统，9月起正式启用，助力学习成长与团队协作
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12">
                     <a href="#" class="btn-primary">
-                        <i class="fas fa-search mr-2"></i>查询积分
+                        <i class="fas fa-search mr-2"></i>查询学分
                     </a>
                     <a href="#" class="btn-secondary">
                         <i class="fas fa-chart-bar mr-2"></i>查看数据分析
@@ -129,49 +129,17 @@
 
     <!-- 最近比赛报表区域 -->
     <!-- 最近通报区域（非卡片式，一行一个，响应式） -->
-<section id="match-reports" class="py-16 bg-white">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-dark mb-4">最近通报</h2>
-            <p class="text-xl text-gray-600">查看最新消息</p>
-        </div>
-
-        <div class="max-w-4xl mx-auto space-y-4">
-            <!-- 通报项 1 -->
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between px-6 py-4 bg-gray-50 rounded-lg border border-gray-200 hover:bg-gray-100 transition">
-                <div>
-                    <h3 class="text-lg font-semibold text-dark">关于“清华队”2025年9月语文积分表更正申明</h3>
-                    <p class="text-sm text-gray-500 mt-1">2025年10月06日</p>
+        <section id="match-reports" class="py-12 bg-white rounded-xl shadow-md mb-16">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">最近通报</h2>
+                    <p class="text-xl text-gray-600">查看最新消息与报告</p>
                 </div>
-                <a href="/article/202510061035.html" class="mt-3 sm:mt-0 inline-flex items-center text-primary hover:text-accent font-medium">
-                    点击查看 <i class="fas fa-arrow-right ml-2"></i>
-                </a>
-            </div>
 
-            <!-- 通报项 2 -->
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between px-6 py-4 bg-gray-50 rounded-lg border border-gray-200 hover:bg-gray-100 transition">
-                <div>
-                    <h3 class="text-lg font-semibold text-dark">关于“北大队”2025年9月语文积分表的报告</h3>
-                    <p class="text-sm text-gray-500 mt-1">2025年10月07日</p>
-                </div>
-                <a href="/article/202510081710.html" class="mt-3 sm:mt-0 inline-flex items-center text-primary hover:text-accent font-medium">
-                    点击查看 <i class="fas fa-arrow-right ml-2"></i>
-                </a>
+                <!-- 通知容器，由JS动态填充 -->
+                <div class="max-w-4xl mx-auto space-y-4" id="notifications-container"></div>
             </div>
-
-            <!-- 通报项 3 -->
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between px-6 py-4 bg-gray-50 rounded-lg border border-gray-200 hover:bg-gray-100 transition">
-                <div>
-                    <h3 class="text-lg font-semibold text-dark">关于“清华队”2025年9月语文积分表的报告</h3>
-                    <p class="text-sm text-gray-500 mt-1">2025年10月05日</p>
-                </div>
-                <a href="/article/202510050807.html" class="mt-3 sm:mt-0 inline-flex items-center text-primary hover:text-accent font-medium">
-                    点击查看 <i class="fas fa-arrow-right ml-2"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
+        </section>
 
     <!-- 功能特点 -->
     <section class="py-20 bg-light">
@@ -179,7 +147,7 @@
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">核心功能</h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    我们提供全方位的语文积分管理解决方案，从9月开始帮助您轻松跟踪学习进度
+                    我们提供全方位的语文学分管理解决方案，从9月开始帮助您轻松跟踪学习进度
                 </p>
             </div>
 
@@ -189,9 +157,9 @@
                     <div class="feature-icon bg-blue-100 text-primary">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-dark mb-2">实时积分跟踪</h3>
+                    <h3 class="text-xl font-semibold text-dark mb-2">实时学分跟踪</h3>
                     <p class="text-gray-600">
-                        从9月开始实时记录和更新语文学习积分，直观展示个人和团队的学习进度与成果。
+                        从9月开始实时记录和更新语文学习学分，直观展示个人和团队的学习进度与成果。
                     </p>
                 </div>
 
@@ -202,7 +170,7 @@
                     </div>
                     <h3 class="text-xl font-semibold text-dark mb-2">团队协作</h3>
                     <p class="text-gray-600">
-                        支持团队积分管理，促进小组成员间的良性竞争与合作，共同提升语文水平。
+                        支持团队学分管理，促进小组成员间的良性竞争与合作，共同提升语文水平。
                     </p>
                 </div>
 
@@ -224,7 +192,7 @@
                     </div>
                     <h3 class="text-xl font-semibold text-dark mb-2">激励机制</h3>
                     <p class="text-gray-600">
-                        完善的积分奖励体系，激发学习积极性，让语文学习更有动力和成就感。
+                        完善的学分奖励体系，激发学习积极性，让语文学习更有动力和成就感。
                     </p>
                 </div>
 
@@ -235,7 +203,7 @@
                     </div>
                     <h3 class="text-xl font-semibold text-dark mb-2">详细记录</h3>
                     <p class="text-gray-600">
-                        完整记录每次学习活动和积分变动，支持历史数据查询与导出，便于学习回顾。
+                        完整记录每次学习活动和学分变动，支持历史数据查询与导出，便于学习回顾。
                     </p>
                 </div>
 
@@ -246,7 +214,7 @@
                     </div>
                     <h3 class="text-xl font-semibold text-dark mb-2">响应式设计</h3>
                     <p class="text-gray-600">
-                        适配各种设备屏幕，随时随地查询和管理积分，学习管理更加便捷高效。
+                        适配各种设备屏幕，随时随地查询和管理学分，学习管理更加便捷高效。
                     </p>
                 </div>
             </div>
@@ -259,7 +227,7 @@
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">数据概览</h2>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    实时掌握语文学习动态，直观了解积分分布情况
+                    实时掌握语文学习动态，直观了解学分分布情况
                 </p>
             </div>
         </div>
@@ -271,7 +239,7 @@
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">关于我们</h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    JYEZ0902CEG致力于打造专业的语文积分管理系统，促进学习进步
+                    JYEZ0902CEG致力于打造专业的语文学分管理系统，促进学习进步
                 </p>
             </div>
 
@@ -280,7 +248,7 @@
                     <div class="p-8 md:p-12 flex flex-col justify-center">
                         <h3 class="text-2xl font-bold text-dark mb-4">项目背景</h3>
                         <p class="text-gray-600 mb-6 leading-relaxed">
-                            JYEZ0902CEG（JYEZ-0902-Chinese-Evaluation-Group）是一个专注于语文学习积分管理的系统，旨在通过科学的积分机制，激发学生的学习兴趣，促进团队协作，提高语文学习效果。
+                            JYEZ0902CEG（JYEZ-0902-Chinese-Evaluation-Group）是一个专注于语文学习学分管理的系统，旨在通过科学的学分机制，激发学生的学习兴趣，促进团队协作，提高语文学习效果。
                         </p>
                         <p class="text-gray-600 mb-6 leading-relaxed">
                             我们相信，合理的激励机制和数据化的管理方式，能够帮助学生更好地规划学习路径，发现自己的优势与不足，从而实现更高效的学习。
@@ -332,11 +300,11 @@
                         </div>
                         <div class="ml-3">
                             <span class="block text-sm font-semibold text-white">JYEZ0902CEG</span>
-                            <span class="block text-xs text-gray-400">语文积分表系统</span>
+                            <span class="block text-xs text-gray-400">语文学分表系统</span>
                         </div>
                     </div>
                     <p class="text-gray-400 text-sm">
-                        专业的语文积分管理与评估系统，助力学习成长与团队协作。
+                        专业的语文学分管理与评估系统，助力学习成长与团队协作。
                     </p>
                 </div>
 
@@ -344,7 +312,7 @@
                     <h4 class="text-lg font-semibold mb-4">快速链接</h4>
                     <ul class="space-y-2">
                         <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">首页</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">积分查询</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">学分查询</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">数据分析</a></li>
                         <li><a href="#match-reports" class="text-gray-400 hover:text-white transition-colors duration-200">比赛报表</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">关于我们</a></li>
@@ -427,195 +395,156 @@
         }
     </style>
 
-    <script>
-        // 导航栏滚动效果
-        const navbar = document.getElementById('navbar');
-        const backToTop = document.getElementById('back-to-top');
+    <!-- ===== 直接整段替换原来的 <script> 标签即可 ===== -->
+<script>
+/* =========================
+   0. 数据区（带 level & path）
+========================= */
+const notifications = [
+    {
+        title: '关于“清华队”2025年9月语文学分表更正申明',
+        date: '2025-10-06',
+        level: 3,   // 通报
+        path: '../article/202510061035.html'
+    },
+    {
+        title: '关于“北大队”2025年9月语文学分表的报告',
+        date: '2025-10-07',
+        level: 2,   // 报告
+        path: '../article/202510081710.html'
+    },
+    {
+        title: '关于“清华队”2025年9月语文学分表的报告',
+        date: '2025-10-05',
+        level: 2,   // 报告
+        path: '../article/202510050807.html'
+    },
+    {
+        title: '25-26 学年旭辉二中九上第一次质量检测（语文）统分通知',
+        date: '2025-10-12',
+        level: 3,   // 报告
+        path: '../article/202510122130.html'
+    },
 
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('shadow-md');
-                navbar.classList.remove('shadow-sm');
-            } else {
-                navbar.classList.remove('shadow-md');
-                navbar.classList.add('shadow-sm');
-            }
 
-            if (window.scrollY > 300) {
-                backToTop.classList.remove('opacity-0', 'invisible');
-                backToTop.classList.add('opacity-100', 'visible');
-            } else {
-                backToTop.classList.add('opacity-0', 'invisible');
-                backToTop.classList.remove('opacity-100', 'visible');
-            }
-        });
+];
 
-        // 移动端菜单
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+/* =========================
+   1. 工具：时间排序（倒序）
+========================= */
+function sortByDateDesc(arr) {
+    return arr.sort((a, b) => new Date(b.date) - new Date(a.date));
+}
 
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+/* =========================
+   2. 工具：根据等级返回图标类名 & 颜色
+========================= */
+function getLevelMeta(level) {
+    switch (level) {
+        case 3: return { icon: 'fa-bullhorn', color: 'text-red-500 bg-red-100' }; // 通报
+        case 2: return { icon: 'fa-file-alt', color: 'text-blue-500 bg-blue-100' }; // 报告
+        default: return { icon: 'fa-info-circle', color: 'text-gray-500 bg-gray-100' }; // 普通
+    }
+}
 
-        // 返回顶部
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
+/* =========================
+   3. 通知渲染函数
+========================= */
+function renderNotifications() {
+    const container = document.getElementById('notifications-container');
+    if (!container) return;
 
-        // 数字动画
-        function animateNumbers() {
-            const statNumbers = document.querySelectorAll('.stat-number');
+    container.innerHTML = '';
+    const sorted = sortByDateDesc([...notifications]); // 拷贝后排序
 
-            statNumbers.forEach(stat => {
-                const target = parseInt(stat.getAttribute('data-target'));
-                const duration = 2000; // 动画持续时间（毫秒）
-                const stepTime = 20; // 每步时间（毫秒）
-                const totalSteps = duration / stepTime;
-                const stepSize = target / totalSteps;
-                let current = 0;
+    sorted.forEach(item => {
+        const meta = getLevelMeta(item.level);
+        const div = document.createElement('div');
+        div.className = 'flex flex-col sm:flex-row sm:items-center justify-between px-6 py-4 bg-gray-50 rounded-lg border border-gray-200 hover:bg-gray-100 transition';
+        div.innerHTML = `
+            <div class="flex items-start">
+                <!-- 左侧图标 -->
+                <div class="flex-shrink-0 w-10 h-10 rounded-full ${meta.color} flex items-center justify-center mr-4">
+                    <i class="fas ${meta.icon}"></i>
+                </div>
+                <!-- 右侧文字 -->
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900">${item.title}</h3>
+                    <p class="text-sm text-gray-500 mt-1">${item.date}</p>
+                </div>
+            </div>
+            <a href="${item.path}" class="mt-3 sm:mt-0 inline-flex items-center text-primary hover:text-accent font-medium">
+                点击查看 <i class="fas fa-arrow-right ml-2"></i>
+            </a>`;
+        container.appendChild(div);
+    });
+}
 
-                const timer = setInterval(() => {
-                    current += stepSize;
-                    if (current >= target) {
-                        current = target;
-                        clearInterval(timer);
-                    }
+/* =========================
+   4. 统计数字动画（可选，保护不变）
+========================= */
+function animateNumbers() {
+    document.querySelectorAll('.stat-number').forEach(el => {
+        const target = +el.dataset.target;
+        if (!target) return;
+        const duration = 2000, stepTime = 20;
+        const totalSteps = duration / stepTime;
+        const stepSize = target / totalSteps;
+        let cur = 0;
+        const timer = setInterval(() => {
+            cur += stepSize;
+            if (cur >= target) { cur = target; clearInterval(timer); }
+            el.textContent = target > 1000 ? Math.floor(cur).toLocaleString() : Math.floor(cur);
+        }, stepTime);
+    });
+}
 
-                    if (target > 1000) {
-                        stat.textContent = Math.floor(current).toLocaleString();
-                    } else {
-                        stat.textContent = Math.floor(current);
-                    }
-                }, stepTime);
-            });
-        }
+/* =========================
+   5. 导航栏滚动 + 返回顶部（原逻辑不变）
+========================= */
+const navbar = document.getElementById('navbar');
+const backToTop = document.getElementById('back-to-top');
 
-        // 监听滚动，当统计区域进入视口时触发动画
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateNumbers();
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        navbar.classList.add('shadow-md');
+        navbar.classList.remove('shadow-sm');
+    } else {
+        navbar.classList.remove('shadow-md');
+        navbar.classList.add('shadow-sm');
+    }
+    if (window.scrollY > 300) {
+        backToTop.classList.remove('opacity-0', 'invisible');
+        backToTop.classList.add('opacity-100', 'visible');
+    } else {
+        backToTop.classList.add('opacity-0', 'invisible');
+        backToTop.classList.remove('opacity-100', 'visible');
+    }
+});
 
-        const statsSection = document.querySelector('.stat-card').parentElement.parentElement;
+backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+/* =========================
+   6. 移动端菜单（原逻辑不变）
+========================= */
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+/* =========================
+   7. 页面初始化
+========================= */
+document.addEventListener('DOMContentLoaded', () => {
+    renderNotifications();                       // 1. 通知渲染（已排序+图标）
+    const statCard = document.querySelector('.stat-card');
+    if (statCard) {                              // 2. 统计动画（可选）
+        const statsSection = statCard.parentElement.parentElement;
+        const observer = new IntersectionObserver(
+            entries => entries.forEach(en => { if (en.isIntersecting) { animateNumbers(); observer.unobserve(en.target); } }),
+            { threshold: 0.5 }
+        );
         observer.observe(statsSection);
-
-        // 图表初始化
-        document.addEventListener('DOMContentLoaded', function() {
-            // 积分分布图表
-            const scoreCtx = document.getElementById('scoreDistributionChart').getContext('2d');
-            new Chart(scoreCtx, {
-                type: 'line',
-                data: {
-                    labels: ['9月', '10月', '11月', '12月', '1月', '2月'],
-                    datasets: [{
-                        label: '平均积分',
-                        data: [65, 78, 82, 90, 85, 95],
-                        borderColor: '#3B82F6',
-                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
-                        borderWidth: 3,
-                        fill: true,
-                        tension: 0.4,
-                        pointBackgroundColor: '#3B82F6',
-                        pointBorderColor: '#ffffff',
-                        pointBorderWidth: 2,
-                        pointRadius: 6
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.1)'
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)'
-                            }
-                        },
-                        x: {
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.1)'
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)'
-                            }
-                        }
-                    }
-                }
-            });
-
-            // 团队积分对比图表
-            const teamCtx = document.getElementById('teamComparisonChart').getContext('2d');
-            new Chart(teamCtx, {
-                type: 'bar',
-                data: {
-                    labels: ['清华队', '北大队', '复旦队', '交大队', '浙大队'],
-                    datasets: [{
-                        label: '团队总积分',
-                        data: [1250, 1180, 1050, 980, 920],
-                        backgroundColor: [
-                            'rgba(59, 130, 246, 0.8)',
-                            'rgba(16, 185, 129, 0.8)',
-                            'rgba(139, 92, 246, 0.8)',
-                            'rgba(245, 158, 11, 0.8)',
-                            'rgba(239, 68, 68, 0.8)'
-                        ],
-                        borderColor: [
-                            'rgba(59, 130, 246, 1)',
-                            'rgba(16, 185, 129, 1)',
-                            'rgba(139, 92, 246, 1)',
-                            'rgba(245, 158, 11, 1)',
-                            'rgba(239, 68, 68, 1)'
-                        ],
-                        borderWidth: 2,
-                        borderRadius: 8
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.1)'
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)'
-                            }
-                        },
-                        x: {
-                            grid: {
-                                display: false
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)'
-                            }
-                        }
-                    }
-                }
-            });
-        });
-    </script>
-
+    }
+});
+</script>
 </body></html>
