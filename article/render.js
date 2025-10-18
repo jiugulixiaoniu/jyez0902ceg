@@ -1,6 +1,10 @@
 // render.js —— 卡片式表格 + 行间距版
 (() => {
-  const mdFile = location.pathname.split('/').pop().replace(/\.html?/i, '.md');
+    const htmlFile = location.pathname.split('/').pop();      // 202510122239.html
+  const mdName   = htmlFile.replace(/\.html?/i, '.md');     // 202510122239.md
+    
+  // 2. 统一放到 /md/ 目录下
+  const mdFile = '/md/' + mdName;                          // /md/202510122239.md
 
 
   fetch(mdFile)
