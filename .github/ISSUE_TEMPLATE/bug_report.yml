@@ -1,84 +1,123 @@
-name: Bug 反馈
-description: 在使用 ClassIsland 的过程中遇到了 Bug。
-title: （将此栏【替换】为你的标题）
+# name: Bug 反馈 | Bug Report
+description: 在使用 JYEZ-0902 语文学分管理系统的过程中遇到了 Bug。
+title: （将此栏【替换】为你的标题，例：批量导入积分时确认按钮无响应）
 labels: ["Bug", "待查看", "优先级：无"]
 type: Bug
 body:
   - type: markdown
     attributes:
       value: |
-        感谢您进行 Bug 反馈。请在上面的文本框⬆️起一个能够清晰描述您的问题的标题，便于开发者解决您的问题。
+        感谢您进行 Bug 反馈！请在上方文本框⬆️填写清晰描述问题的标题（避免模糊表述），便于开发者快速定位问题。
         
         > [!important]
-        > 重要：如果要提出**多个 Bug**，请为每一个 Bug 开一个单独的 issue。
-        >
-        > 如果您不知道如何有效、精准地表述，我们建议您先阅读《提问的智慧》（[链接](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md)）。
-        
+        > 🔴 重要提醒：
+        > 1. 若需反馈**多个 Bug**，请为每个 Bug 单独创建 Issue，避免混合提交
+        > 2. 提交前建议阅读《提问的智慧》（[链接](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md)），提升反馈效率
+        > 3. 本项目仅用于非商业教育场景，反馈需符合开源协议相关规定
+
   - type: checkboxes
-    id: checklist
+    id: pre-checklist
     attributes:
-      label: 检查清单
-      description: 在开始反馈这个问题之前，请先检查：
+      label: 提交前检查清单
+      description: 为避免重复反馈和无效沟通，请先完成以下检查：
       options:
-        - label: 我已更新到最新版 ![最新的版本号](https://img.shields.io/github/v/release/ClassIsland/ClassIsland?include_prereleases&style=flat-square&label=) 或 ![最新的版本号](https://img.shields.io/github/v/release/ClassIsland/ClassIsland?style=flat-square&label=) 测试，并看过 [最新提交](https://github.com/ClassIsland/ClassIsland/commits/dev/)，确认这一 Bug 还没有修复。我也已在 [Issues](https://github.com/ClassIsland/ClassIsland/issues?q=type%3ABug) 中检索，确认这一 Bug 未被提交过，并且在 [常见问题](https://docs.classisland.tech/app/faq/faq.html) 中没有解决方案。
+        - label: 我已更新到项目最新版本（查看 [最新提交](https://github.com/jiugulixiaoniu/jyez0902ceg/commits/main/)），确认该 Bug 未被修复
+        - label: 我已在 [Issues](https://github.com/jiugulixiaoniu/jyez0902ceg/issues?q=type%3ABug) 中检索关键词，确认该 Bug 未被提交过
+        - label: 我已阅读项目 [数据管理规则](https://github.com/jiugulixiaoniu/jyez0902ceg/blob/main/Sidebar/Rules.html) 和相关文档，确认问题并非操作不当导致
+        - label: 我已知晓并同意：此处仅用于反馈程序本身的功能 Bug，非程序问题（如使用咨询、需求建议）请通过邮件联系（Lavachicken2512@outlook.com）
           required: true
-        - label: 我已经仔细阅读过选项里的内容，并且知道这个选项不用勾选。
-        - label: 我已知晓并同意，此处仅用于汇报程序中存在的问题（关于其他非程序本身的问题应当在 Discussion 板块提出）。
-          required: true
+
   - type: markdown
-    attributes: 
+    attributes:
       value: |
-        ### Bug 信息
-
-        描述您遇到的 Bug。您可以附上截图、录屏、堆栈跟踪、日志等材料，便于开发者追踪问题。**您可以阅读[此处的文档](https://docs.classisland.tech/app/reporting-issue) 来了解如何收集跟踪错误需要的信息。**
-
+        ### 📋 Bug 核心信息
+        请详细描述遇到的问题，可附上截图、录屏、错误日志等材料。完整的信息将大幅缩短修复周期！
+        
         > [!note]
-        > 上传附件时**请优先使用 GitHub 的附件系统上传附件**，将需要上传的附件粘贴或拖动到撰写区域即可上传。多个文件可打包为 zip 格式后上传。**尽量避免使用需要登陆或安装客户端才能接收附件的网盘（如\*度网盘、\*克网盘、1\*3网盘等）上传附件**，以避免开发者因不具有对应网盘客户端或账户而延误问题诊断。
+        > 📎 附件上传说明：
+        > - 直接拖拽/粘贴文件到输入框即可通过 GitHub 附件系统上传
+        > - 多文件建议打包为 ZIP 格式上传
+        > - 避免使用需要登录的第三方网盘（如百度网盘等），影响问题处理效率
+        > - 截图建议包含操作界面和错误提示，录屏建议控制在 30 秒内聚焦核心问题
+
   - type: textarea
-    id: excepted
+    id: expected-behavior
     attributes:
-      label: 期望的行为
-      description: 详细的描述你期望发生的行为，突出与目前（可能不正确的）行为的不同。
+      label: 🎯 期望的行为
+      description: 详细描述你认为正常情况下应该发生的结果，明确与实际行为的差异
+      placeholder: 例：点击"批量导入积分"按钮后，系统应验证文件格式并显示导入进度，成功后更新积分列表并弹出提示
     validations:
       required: true
+
   - type: textarea
-    id: what-happened
+    id: actual-behavior
     attributes:
-      label: 实际结果
-      description: 实际发生的行为。
+      label: ❌ 实际发生的结果
+      description: 详细描述实际遇到的异常现象，包括错误提示、页面状态、数据变化等
+      placeholder: 例：点击"批量导入积分"按钮后，页面无任何响应，控制台（F12）显示 "Uncaught TypeError: Cannot read properties of undefined (reading 'import')" 错误
     validations:
       required: true
+
   - type: textarea
     id: reproduce-steps
     attributes:
-      label: 重现步骤
-      description: |
-        详细描述要怎么操作才能再次触发这个 Bug。
+      label: 🔍 重现步骤
+      description: 提供精准可复现的操作步骤（越详细越好），确保开发者能快速复现问题
       placeholder: |
-        1. 首先……
-        2. 然后……
-        3. ……
+        1. 登录系统，进入「团队积分管理」页面
+        2. 点击顶部导航栏的「批量导入」按钮
+        3. 选择本地文件 "清华队-2025-10-积分表.xlsx"（格式符合要求）
+        4. 点击「确认导入」按钮
+        5. 观察到页面无响应，未显示任何反馈信息
     validations:
       required: true
+
   - type: textarea
-    id: stacktrace
+    id: environment-info
     attributes:
-      label: 堆栈跟踪（可选）
-      description: 如果在遇到这个 Bug 时发生了崩溃（弹出崩溃提示），或者产生了错误日志，请将产生的堆栈跟踪信息粘贴到此处，便于开发者定位 Bug。
+      label: 💻 运行环境
+      description: 请提供完整的设备和浏览器信息，避免因环境差异导致无法复现
+      placeholder: |
+        桌面端：
+        - 操作系统：Windows 11 专业版 22H2
+        - 浏览器：Chrome 128.0.6613.138
+        - 屏幕分辨率：1920×1080
+        - 网络环境：校园网（有线）
+        
+        移动端（如适用）：
+        - 设备型号：iPhone 14 Pro
+        - 操作系统：iOS 17.5
+        - 浏览器：Safari 移动版
+    validations:
+      required: true
+
+  - type: textarea
+    id: error-logs
+    attributes:
+      label: 📜 错误日志（可选）
+      description: 若浏览器控制台有错误信息、系统有崩溃日志，请复制粘贴到此处（按 F12 打开控制台，切换到 Console 标签查看）
       render: shell
+      placeholder: 例：
+        Uncaught TypeError: Cannot read properties of undefined (reading 'import')
+        at HTMLButtonElement.importExcel (index.js:125:30)
+        at HTMLButtonElement.handleClick (index.js:89:18)
+
   - type: textarea
-    id: diagnostics
+    id: additional-info
     attributes:
-      label: 诊断信息
-      description: 在【应用设置】->【关于】->【查看诊断信息】中查看。请完整复制其中的诊断信息并粘贴到下面的文本输入框中，不要做任何更改。
-      render: plaintext
-    validations:
-      required: true
+      label: 📌 补充信息（可选）
+      description: 其他有助于定位问题的信息，如：问题出现频率（必现/偶现）、最近是否有系统更新、尝试过的解决方法及结果等
+      placeholder: 例：该问题仅在导入超过 50 行数据的 Excel 时出现，导入少量数据正常；已尝试更换浏览器，问题依然存在
+
   - type: checkboxes
-    id: revision
+    id: final-confirmation
     attributes:
-      label: 最后一步
-      description: 回顾您的回答
+      label: 📝 最终确认
+      description: 提交前请再次确认以下内容：
       options:
-        - label: 我认为上述的描述已经足以详细，以允许开发人员能复现该问题。如果我的 issue 没有按照上述的要求填写，可能会被无条件关闭。
+        - label: 我已提供上述所有必要信息，描述清晰、准确，足以支持开发者复现和修复问题
+          required: true
+        - label: 我承诺反馈内容真实有效，未虚构 Bug 或提供误导性信息
+          required: true
+        - label: 我已知晓：若反馈信息不完整、描述模糊，Issue 可能被标记为「需要补充信息」或直接关闭
           required: true
