@@ -1,4 +1,4 @@
-# name: Bug 反馈 | Bug Report
+name: Bug 反馈 | Bug Report
 description: 在使用 JYEZ-0902 语文学分管理系统的过程中遇到了 Bug。
 title: （将此栏【替换】为你的标题，例：批量导入积分时确认按钮无响应）
 labels: ["Bug", "待查看", "优先级：无"]
@@ -97,7 +97,8 @@ body:
       label: 📜 错误日志（可选）
       description: 若浏览器控制台有错误信息、系统有崩溃日志，请复制粘贴到此处（按 F12 打开控制台，切换到 Console 标签查看）
       render: shell
-      placeholder: 例：
+      placeholder: |
+        例：
         Uncaught TypeError: Cannot read properties of undefined (reading 'import')
         at HTMLButtonElement.importExcel (index.js:125:30)
         at HTMLButtonElement.handleClick (index.js:89:18)
