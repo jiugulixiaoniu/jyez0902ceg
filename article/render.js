@@ -4,7 +4,7 @@
   const mdName   = htmlFile.replace(/\.html?/i, '.md');     // 202510122239.md
     
   // 2. 统一放到 /md/ 目录下
-  const mdFile = 'jyez0902ceg/article/md/' + mdName;                          // /md/202510122239.md
+  const mdFile = '../jyez0902ceg/article/md/' + mdName;                          // /md/202510122239.md
 
 
   fetch(mdFile)
