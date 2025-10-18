@@ -2,7 +2,6 @@ name: Bug 反馈 | Bug Report
 description: 在使用 JYEZ-0902 语文学分管理系统的过程中遇到了 Bug。
 title: （将此栏【替换】为你的标题，例：批量导入积分时确认按钮无响应）
 labels: ["Bug", "待查看", "优先级：无"]
-type: Bug
 body:
   - type: markdown
     attributes:
@@ -45,7 +44,7 @@ body:
     attributes:
       label: 🎯 期望的行为
       description: 详细描述你认为正常情况下应该发生的结果，明确与实际行为的差异
-      placeholder: 例：点击"批量导入积分"按钮后，系统应验证文件格式并显示导入进度，成功后更新积分列表并弹出提示
+      placeholder: '例：点击"批量导入积分"按钮后，系统应验证文件格式并显示导入进度，成功后更新积分列表并弹出提示'
     validations:
       required: true
 
@@ -54,7 +53,7 @@ body:
     attributes:
       label: ❌ 实际发生的结果
       description: 详细描述实际遇到的异常现象，包括错误提示、页面状态、数据变化等
-      placeholder: 例：点击"批量导入积分"按钮后，页面无任何响应，控制台（F12）显示 "Uncaught TypeError: Cannot read properties of undefined (reading 'import')" 错误
+      placeholder: '例：点击"批量导入积分"按钮后，页面无任何响应，控制台（F12）显示 "Uncaught TypeError: Cannot read properties of undefined (reading ''import'')" 错误'
     validations:
       required: true
 
@@ -96,7 +95,6 @@ body:
     attributes:
       label: 📜 错误日志（可选）
       description: 若浏览器控制台有错误信息、系统有崩溃日志，请复制粘贴到此处（按 F12 打开控制台，切换到 Console 标签查看）
-      render: shell
       placeholder: |
         例：
         Uncaught TypeError: Cannot read properties of undefined (reading 'import')
