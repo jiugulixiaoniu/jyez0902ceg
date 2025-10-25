@@ -60,7 +60,15 @@ jyez0902ceg/
 
 ## 📜 开源协议
 
-本项目采用 [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode.txt) 协议开源，允许自由分发和修改，但必须保持开源并保留原作者信息。
+本项目采用 [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode.txt) 协议开源，这意味着您可以：
+
+共享 — 复制、发行本作品
+改编 — 修改、转换、基于本作品进行再创作
+但你同时需要遵守以下条件：
+
+署名 — 你必须注明原始作者（MillenTec）和出处，并提供原始协议链接
+非商业性使用 — 你不得将本作品用于商业用途
+简单来说，只要您不将它用于商业用途，并且署上原作者的名字，您可以将它用于任何用途（具体还请查看CC BY-NC 4.0 License）
 
 ---
 
