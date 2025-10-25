@@ -60,7 +60,7 @@ jyez0902ceg/
 
 ## 📜 开源协议
 
-本项目采用 [GNU General Public License v3.0](LICENSE) 协议开源，允许自由分发和修改，但必须保持开源并保留原作者信息。
+本项目采用 [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode.txt) 协议开源，允许自由分发和修改，但必须保持开源并保留原作者信息。
 
 ---
 
